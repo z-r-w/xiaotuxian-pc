@@ -1,5 +1,5 @@
 <template>
-<div>主页面</div>
+<div class="container">主页面</div>
 </template>
 
 <script>
@@ -8,6 +8,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+@import url('~../../src/assets/styles/minixs.less');
+.container {
+  .hoverShadow();
+}
 </style>
