@@ -3,19 +3,21 @@
   <AppTopnav></AppTopnav>
   <!-- 头部菜单 -->
   <AppHearer></AppHearer>
-  <header>头部</header>
   <router-view></router-view>
-  <footer>底部</footer>
+  <!-- 底部 -->
+  <AppFooter></AppFooter>
 </template>
 
 <script>
 import AppHearer from '@/components/app-header.vue'
 import AppTopnav from '@/components/app-topnav.vue'
+import AppFooter from '@/components/app-footer.vue'
 export default {
   name: 'Layout-view',
   components: {
     AppTopnav,
-    AppHearer
+    AppHearer,
+    AppFooter
   }
 }
 </script>
