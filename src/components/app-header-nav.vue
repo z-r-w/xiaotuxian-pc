@@ -2,11 +2,11 @@
         <ul class="app-header-nav">
         <li class="home"><RouterLink to="/">首页</RouterLink></li>
         <!-- // eslint-disable-next-line vue/require-v-for-key -->
-        <li v-for="item in list" :key="item.id"><RouterLink to="/">{{item.name}}</RouterLink>
-        <div class="layer">
+        <li v-for="item in list" :key="item.id" @mouseenter="show(item)" @mouseleave="hide(item)"><RouterLink @click="hide(item)" :to="`/category/${item.id}`">{{item.name}}</RouterLink>
+        <div class="layer" :class="{open: item.open}">
         <ul>
           <li v-for="sub in item.children" :key="sub.id">
-            <RouterLink to="/">
+            <RouterLink :to="`/category/sub/${sub.id}`" @click="hide(item)">
               <img :src="sub.picture" alt="">
               <p>{{sub.name}}</p>
             </RouterLink>
@@ -26,11 +26,18 @@ export default {
   setup () {
     const store = useStore()
     // 获取导航主页信息
-    // store.dispatch('category/getCategory')
     const list = computed(() => store.state.category.list)
+    // 显示和隐藏主页头部导航
+    const show = (item) => {
+      // debugger
+      store.commit('category/show', item)
+    }
+    const hide = (item) => {
+      store.commit('category/hide', item)
+    }
     // const list = lists.value
     console.log('list', list)
-    return { list }
+    return { list, show, hide }
   }
 }
 </script>
@@ -58,14 +65,18 @@ export default {
         color: @xtxColor;
         border-bottom: 1px solid @xtxColor;
       }
-      > .layer {
-        height: 132px;
-        opacity: 1;
-      }
+      // > .layer {
+      //      height: 132px;
+      //      opacity: 1;
+      // }
     }
   }
 }
 .layer {
+   &.open {
+           height: 132px;
+           opacity: 1;
+          }
   width: 1240px;
   background-color: #fff;
   position: absolute;
@@ -78,7 +89,7 @@ export default {
   transition: all .2s .1s;
   ul {
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     padding: 0 70px;
     align-items: center;
     height: 132px;
