@@ -1,16 +1,22 @@
 <template>
-<div class="container">主页面</div>
+<div class="page-home">
+    <div class="home-entry">
+      <div class="container">
+        <!-- 左侧分类 -->
+        <HomeCategory />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import HomeCategory from './components/home-categor.vue'
 export default {
-  name: 'Home-view'
+  name: 'Home-view',
+  components: { HomeCategory }
 }
 </script>
 
 <style lang="less" scoped>
-@import url('~../../src/assets/styles/minixs.less');
-.container {
-  .hoverShadow();
-}
+
 </style>
