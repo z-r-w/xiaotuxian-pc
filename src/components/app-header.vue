@@ -2,6 +2,7 @@
   <header class='app-header'>
     <div class="container">
       <h1 class="logo"><RouterLink to="/">小兔鲜</RouterLink></h1>
+      <AppHeaderSticky></AppHeaderSticky>
       <appHeaderNav></appHeaderNav>
       <div class="search">
         <i class="iconfont icon-search"></i>
@@ -17,11 +18,13 @@
 </template>
 
 <script>
+import AppHeaderSticky from './app-header-sticky.vue'
 import appHeaderNav from './app-header-nav.vue'
 export default {
   name: 'AppHeader',
   components: {
-    appHeaderNav
+    appHeaderNav,
+    AppHeaderSticky
   }
 }
 </script>
