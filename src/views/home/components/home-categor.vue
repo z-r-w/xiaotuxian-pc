@@ -73,7 +73,6 @@ export default {
     const currCategory = computed(() => {
       return menuList.value.find(item => item.id === categoryId.value)
     })
-    debugger
     return { menuList, categoryId, currCategory }
   }
 }

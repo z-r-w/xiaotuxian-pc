@@ -36,7 +36,6 @@ export default {
       store.commit('category/hide', item)
     }
     // const list = lists.value
-    console.log('list', list)
     return { list, show, hide }
   }
 }

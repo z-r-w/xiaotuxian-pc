@@ -10,7 +10,6 @@ const instance = axios.create({
 instance.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
   const { profile } = store.state.user
-  console.log('profile.token', profile)
   if (profile.token) {
     config.headers.Authorization = `Bearer ${profile.token}`
   }
