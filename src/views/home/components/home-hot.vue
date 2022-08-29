@@ -30,6 +30,7 @@ export default {
 </script>
 
 <style scoped lang='less'>
+@import url('~../../src/assets/styles/minixs.less');
 .goods-list {
   display: flex;
   justify-content: space-between;
