@@ -1,8 +1,10 @@
 // 懒加载函数
 import { useIntersectionObserver } from '@vueuse/core'
 import { ref } from 'vue'
-export const useLazyData = (target, apiFn) => {
+export const useLazyData = (apiFn) => {
   const result = ref([])
+  const target = ref(null)
+
   const { stop } = useIntersectionObserver(
     target,
     ([{ isIntersecting }], observerElement) => {
@@ -12,5 +14,5 @@ export const useLazyData = (target, apiFn) => {
       }
     }
   )
-  return result
+  return { result, target }
 }
