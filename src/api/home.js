@@ -11,3 +11,7 @@ export const findNew = () => {
 export const findHot = () => {
   return request('home/hot', 'get')
 }
+// 热门品牌
+export const findBrand = (params) => {
+  return request('/home/brand', 'get', params)
+}
