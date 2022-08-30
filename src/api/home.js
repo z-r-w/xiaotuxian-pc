@@ -15,3 +15,7 @@ export const findHot = () => {
 export const findBrand = (params) => {
   return request('/home/brand', 'get', params)
 }
+// 商品区块
+export const findGoods = () => {
+  return request('home/goods', 'get')
+}
