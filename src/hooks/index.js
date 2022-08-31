@@ -16,5 +16,6 @@ export const useLazyData = (apiFn) => {
       threshold: 0
     }
   )
+  console.log('result1111', result)
   return { result, target }
 }

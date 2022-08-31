@@ -19,3 +19,7 @@ export const findBrand = (params) => {
 export const findGoods = () => {
   return request('home/goods', 'get')
 }
+// 最新专题
+export const findSpecial = () => {
+  return request('home/special', 'get')
+}
